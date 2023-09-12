@@ -1,0 +1,57 @@
+[
+  {
+      "id": 2,
+      "title": "Zapatos Importados",
+      "description": "Christian Louboutin",
+      "price": 36999,
+      "thumbnail": "https://www.pngplay.com/wp-content/uploads/4/Women-Shoes-PNG-Photos.png",
+      "code": 15626,
+      "stock": 17,
+      "status": true,
+      "category": "Zapatos"
+  },
+  {
+      "id": 3,
+      "title": "Zapatos Importados",
+      "description": "Christian Louboutin",
+      "price": 36999,
+      "thumbnail": "https://www.pngplay.com/wp-content/uploads/4/Women-Shoes-PNG-Photos.png",
+      "code": 15626,
+      "stock": 17,
+      "status": true,
+      "category": "Zapatos"
+  },
+  {
+      "id": 4,
+      "title": "Zapatos Importados",
+      "description": "Christian Louboutin",
+      "price": 36999,
+      "thumbnail": "https://www.pngplay.com/wp-content/uploads/4/Women-Shoes-PNG-Photos.png",
+      "code": 15626,
+      "stock": 17,
+      "status": true,
+      "category": "Zapatos"
+  },
+  {
+      "id": 5,
+      "title": "Zapatos Importadosr",
+      "description": "Christian Louboutin",
+      "price": 36999,
+      "thumbnail": "https://www.pngplay.com/wp-content/uploads/4/Women-Shoes-PNG-Photos.png",
+      "code": 15626,
+      "stock": 17,
+      "status": true,
+      "category": "Zapatos"
+  },
+  {
+      "id": 6,
+      "title": "Zapatos Importados",
+      "description": "Christian Louboutin",
+      "price": 36999,
+      "thumbnail": "https://www.pngplay.com/wp-content/uploads/4/Women-Shoes-PNG-Photos.png",
+      "code": 15626,
+      "stock": 17,
+      "status": true,
+      "category": "Zapatos"
+  }
+]
