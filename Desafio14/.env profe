@@ -1,0 +1,6 @@
+PORT=8080
+SECRET_SESSION=secretSessionCoder
+MONGO_URL="url mongo"
+GMAIL_SALES="gmail admin"
+GMAIL_SALES_PASSWORD="gmail password app"
+SECRET_TOKEN_EMAIL="coderSecret1234"
