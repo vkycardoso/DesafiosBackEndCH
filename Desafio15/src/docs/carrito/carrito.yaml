@@ -1,0 +1,118 @@
+paths:
+  /api/cart:
+    get:
+      summary: Endpoint para obtener todos los carritos
+      tags:
+        - Carrito
+      responses:
+        "200":
+          description: Se obtuvieron correctamente los carritos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/cart'
+        "401":
+          description: No tienes permisos para acceder a esta ruta
+        "500":
+          description: Se produjo un error en el servidor
+  /api/cart/{uid}:
+    get:
+      summary: Endpoint para obtener informacion de un carrito
+      tags:
+        - Carrito
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: id del carrito
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Se obtuvo correctamente el carrito
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/cart'
+        "401":
+          description: No tienes permisos para acceder a esta ruta
+        "500":
+          description: Se produjo un error en el servidor
+    put:
+      summary: Endpoint para actualizar un carrito
+      tags:
+        - Carrito
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: id del carrito a actualizar
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/UpdateCart"
+      responses:
+        "200":
+          description: Se actualizo correctamente el usuario
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+        "401":
+          description: No tienes permisos para acceder a esta ruta
+        "500":
+          description: Se produjo un error en el servidor
+
+# Esto sale de DAO/models/products.model.js
+components:
+  schemas:
+    cart:
+      type: object
+      properties:
+        products:
+          type: Object
+          description: Producto en carrito
+          _id:
+            type: mongoose.Types.ObjectId,
+            description: Id de mongoose
+          quantity:
+            type: Number
+            description: Cantidad
+        default:
+            type: Array
+            description: Estado del prod.
+      example:
+        products: Nike Azul y roja
+        _id: zaphom43Nike
+        quantity: 3
+  requestBodies:
+    UpdateUCart:
+      type: object
+      properties:
+        products:
+          type: Object
+          description: Producto en carrito
+          _id:
+            type: mongoose.Types.ObjectId,
+            description: Id de mongoose
+          quantity:
+            type: Number
+            description: Cantidad
+        default:
+            type: Array
+            description: Estado del prod.
+      example:
+        products: Nike Azul y roja
+        _id: zaphom43Nike
+        quantity: 3

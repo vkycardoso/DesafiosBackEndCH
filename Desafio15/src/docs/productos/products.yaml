@@ -1,0 +1,152 @@
+paths:
+  /api/productos:
+    get:
+      summary: Endpoint para obtener todos los productos
+      tags:
+        - Producto
+      responses:
+        "200":
+          description: Se obtuvieron correctamente los productos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#components/schemas/products'
+        "401":
+          description: No tienes permisos para acceder a esta ruta
+        "500":
+          description: Se produjo un error en el servidor
+  /api/productos/{uid}:
+    get:
+      summary: Endpoint para obtener informacion de un producto
+      tags:
+        - Producto
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: id del producto
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Se obtuvo correctamente el producto
+          content:
+            application/json:
+              schema:
+                $ref: '#components/schemas/products'
+        "401":
+          description: No tienes permisos para acceder a esta ruta
+        "500":
+          description: Se produjo un error en el servidor
+    put:
+      summary: Endpoint para actualizar un producto
+      tags:
+        - Producto
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: id del producto a actualizar
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/UpdateProduct"
+      responses:
+        "200":
+          description: Se actualizo correctamente el usuario
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+        "401":
+          description: No tienes permisos para acceder a esta ruta
+        "500":
+          description: Se produjo un error en el servidor
+
+# Esto sale de DAO/models/products.model.js
+components:
+  schemas:
+    products:
+      type: object
+      properties:
+        title:
+          type: String
+          description: Nombre producto
+        description:
+          type: String
+          description: Descripcion del producto
+        price:
+          type: Number
+          description: Precio
+        stock:
+          type: Number
+          description: Cantidad en stock
+        thumbail:
+          type: String
+          description: Imagen producto
+        code:
+          type: String
+          description: Codigo de prod.
+        category:
+          type: String
+          description: Categoria de prod
+        status:
+          type: Boolean
+          description: Estado del prod.
+      example:
+        title: Nike Azul y roja
+        description: Zapatilla Nike hombre
+        price: 43000
+        stock: 100
+        thumbnail: pepe.png
+        code: zaphom43Nike
+        category: Zapatilla Hombre
+        status: true
+  requestBodies:
+    UpdateUProduct:
+      type: object
+      properties:
+        title:
+          type: String
+          description: Nombre producto
+        description:
+          type: String
+          description: Descripcion del producto
+        price:
+          type: Number
+          description: Precio
+        stock:
+          type: Number
+          description: Cantidad en stock
+        thumbail:
+          type: String
+          description: Imagen producto
+        code:
+          type: String
+          description: Codigo de prod.
+        category:
+          type: String
+          description: Categoria de prod
+        status:
+          type: Boolean
+          description: Estado del prod.
+      example:
+        title: Nike Azul y roja
+        description: Zapatilla Nike hombre
+        price: 43000
+        stock: 100
+        thumbnail: pepe.png
+        code: zaphom43Nike
+        category: Zapatilla Hombre
+        status: true
